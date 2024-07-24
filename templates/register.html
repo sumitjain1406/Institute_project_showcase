@@ -1,0 +1,93 @@
+{% extends 'index.html' %} 
+{% block title %}
+<title>Register</title>
+{% endblock title %} 
+
+{% block content %}
+
+<div class="container w-75" >
+  <form action='/user_auth/register/' method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email<span style="color: red">*</span></label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          placeholder="Email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password<span style="color: red">*</span></label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword4"
+          placeholder="Password"
+          name="password"
+          required
+
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName">Full Name<span style="color: red">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder="Enter Name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputEnrollment">Enrollment<span style="color: red">*</span></label>
+        <input
+          type="number"
+          class="form-control"
+          id="inputEnrollment"
+          placeholder="18050990"
+          min="10000000"
+          max="999999999"
+          name="enrollment"
+          required
+        />
+      </div>
+    </div>
+    
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputbranch">Branch<span style="color: red">*</span></label>
+        <select id="inputbranch" class="form-control" name="branch">
+          <option selected>IT</option>
+          <option>CSE</option>
+          <option>ENTC</option>
+          <option>ELN</option>
+          <option>CIVIL</option>
+          <option>MECH</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputpassout">Passout Year<span style="color: red">*</span></label>
+        <select id="inputpassout" class="form-control" name="year">
+          <option>2024</option>
+          <option selected>2023</option>
+          <option>2022</option>
+          <option>2021</option>
+        </select>
+      </div>
+    </div>
+    <div class='btn-success d-grid rounded text-center' >
+    <button type="submit" class="btn btn-success">Register</button>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
+
+

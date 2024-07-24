@@ -1,0 +1,73 @@
+{% extends 'index.html' %} {% block title %}
+<title>Projects</title>
+{% endblock title %} {% block content %}
+
+<div class="container">
+  <form class="form" action="/viewprojects/search/" method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-sm-4 ">
+        <select class="custom-select" name="dropdown">
+          <option value="Theme" selected>Theme</option>
+          <option value="Technology_stack">Technology stack</option>
+          <option value="Project_Title">Project Title</option>
+          <option value="branch">Branch</option>
+          <option value="passout_year">passout year</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="search"
+        />
+      </div>
+      <div class="col-sm-4">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+        <a href="/viewprojects/all" type="button" class="btn btn-info"
+          >ALL Projects</a
+        >
+      </div>
+    </div>
+  </form>
+</div>
+<br />
+<div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Leader Name</th>
+        <th scope="col">Teammate Name</th>
+        <th scope="col">Project Title</th>
+        <th scope="col">Technology stack</th>
+        <th scope="col">Theme</th>
+        <th scope="col">Short Description</th>
+        <th scope="col">Achievement</th>
+        <th scope="col">Branch</th>
+        <th scope="col">Passout year</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for i in data%}
+
+      <tr>
+        <td>{{i.1}}</td>
+        <td>{{i.2}}</td>
+        <td>{{i.3}}</td>
+        <td>{{i.4}}</td>
+        <td>{{i.5}}</td>
+        <td>{{i.6}}</td>
+        <td>{{i.7}}</td>
+        <td>{{i.8}}</td>
+        <td>{{i.9}}</td>
+        <td>{{i.10}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

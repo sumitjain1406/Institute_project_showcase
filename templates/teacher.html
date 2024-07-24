@@ -1,0 +1,49 @@
+{% extends 'index.html' %} {% block title %}
+<title>Admin</title>
+{% endblock title %} {% block content %}
+<div class="container">
+  <form
+    action="/teacher/enrollment/"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      <div class="custom-file">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="inputGroupFile01"
+          name="enroll"
+        />
+        <label class="custom-file-label" for="inputGroupFile01"
+          >Choose file</label
+        >
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <br />
+  <h1 class="text-center">All Users</h1>
+  <div>
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th scope="col">Enrollment ID</th>
+          <th scope="col">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for i in data%}
+        <tr>
+          <td>{{i.0}}</td>
+          <td>{{i.1}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

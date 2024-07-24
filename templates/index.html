@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" type="image/x-icon" href="/static/logo.ico" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    {% block title %}{% endblock title %}
+    <title>𝓟𝓻𝓸𝓳𝓮𝓬𝓽 𝓢𝓱𝓸𝔀𝓬𝓪𝓼𝓮</title>
+  </head>
+  <body style=" background-color:lightblue!important">
+    <nav class="navbar navbar-expand-lg navbar-blue bg-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <a class="navbar-brand" href="/">
+            <img src="/static/logo.ico" width="30" height="30" alt="logo" />
+          </a>
+          <h5  class="text-white pt-2 mr-5">𝓟𝓻𝓸-𝓬𝓪𝓼𝓮</h5>
+
+          
+        </ul>
+        <!-- Button trigger modal -->
+        <a href="/viewprojects" type="button" class="btn btn-warning mr-5">View Projects</a>
+        {% if active %}
+        <a href="/user_auth/logout" type="button" class="btn btn-primary">Logout</a>
+
+        {% else %}
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Login
+        </button>
+        {% endif %}
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form action="/user_auth/login/" method="POST">
+            {% csrf_token %}
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  name="email"
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  name="password"
+                />
+              </div>
+              <div>
+                Not Yet Register?
+                <a href="/user_auth/register">Register </a>
+                Now
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {% if loginerror %}
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Error!</strong> Incorrect E-mail or Password.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    {% endif %}
+
+    <div class="mt-5">{% block content %}{% endblock content %}</div>
+
+
+    <div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <img src="/static/logo.ico" width="30" height="30" alt="logo" class="mx-2"/>        
+            </a>
+          <span class="mb-3 mb-md-0 text-muted">© 2023 𝓟𝓻𝓸-𝓬𝓪𝓼𝓮</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3 mx-2" ><a class="text-muted" href="#"><i class="bi bi-twitter"></i></a></li>
+          <li class="ms-3 mx-2"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
+          <li class="ms-3 mx-2"><a class="text-muted" href="#"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js,then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

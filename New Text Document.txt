@@ -1,0 +1,8 @@
+CREATE TABLE view_projects (Leader_Name varchar(255),Teammate_Name varchar(255),Project_Title varchar(255),Technology_stack varchar(255),Theme varchar(255),Short_Description varchar(255));
+
+Admin pass- 'Admin@123'
+insert into user(email,pass,name,enrollment,branch,passout_year,role)values('Admin123@gmail.com','$2a$12$zBlIkBcJeNxfaCzzqHDmRuUKCM24S7Zi8RldHJ./1xi7kQbFDJhqe','Admin',10000000,'IT',2000,'admin');
+
+Meet@123
+
+ALTER TABLE view_projects ADD COLUMN id int AUTO_INCREMENT PRIMARY KEY FIRST; 

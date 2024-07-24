@@ -1,0 +1,136 @@
+{% extends 'index.html' %} {% block title %}
+<title>Student</title>
+{% endblock title %} {% block content %}
+
+<div class="container w-75">
+  <form action="/student/" method="POST" novalidate>
+    {% csrf_token %}
+    <h1>Project Details</h1>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName"
+          >Leader Name <span style="color: red">*</span></label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder=" "
+          name="Lname"
+          required
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputName"
+          >Teammate Name <span style="color: red">*</span></label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder=" "
+          name="Tname"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputName"
+          >Project Title <span style="color: red">*</span></label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder=" "
+          name="Title"
+          required
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="exampleDataList" class="form-label"
+          >Technology stack <span style="color: red">*</span></label
+        >
+        <input
+          class="form-control"
+          type="email"
+          list="datalistOptions"
+          id="exampleDataList"
+          placeholder="Type to search..."
+          name="stack"
+          required
+          multiple
+        />
+        <datalist id="datalistOptions">
+          <option value="HTML"></option>
+          <option value="CSS"></option>
+          <option value="JavaScript"></option>
+          <option value="PHP"></option>
+          <option value="ReactJS"></option>
+        </datalist>
+
+        <small id="emailHelp" class="form-text text-muted"
+          >comma seperated values.
+        </small>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="technology" class="form-label"
+          >Select Theme <span style="color: red">*</span></label
+        >
+
+        <br />
+        <select id="technology" class="sortByPS" name="Theme">
+          <option selected value="Web Application">Web Application</option>
+          <option value="Blockchain &amp; Cybersecurity">Blockchain &amp; Cybersecurity</option>
+          <option value="Clean &amp; Green Technology">Clean &amp; Green Technology</option>
+          <option value="Fitness &amp; Sports">Fitness &amp; Sports</option>
+          <option value="Heritage &amp; Culture">Heritage &amp; Culture</option>
+          <option value="MedTech / BioTech / HealthTech">MedTech / BioTech / HealthTech</option>
+          <option value="Miscellaneous">Miscellaneous</option>
+          <option value="Renewable / Sustainable Energy">Renewable / Sustainable Energy</option>
+          <option value="Robotics and Drones">Robotics and Drones</option>
+          <option value="Smart Automation">Smart Automation</option>
+          <option value="Smart Vehicles">Smart Vehicles</option>
+          <option value="Travel &amp; Tourism">Travel &amp; Tourism</option>
+          <option value="Transportation &amp; Logistics">Transportation &amp; Logistics</option>
+          <option value="Disaster Management">Disaster Management</option>
+          <option value="Smart Education">Smart Education</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputName"
+          >Achievement </label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder=" "
+          name="Achievement"
+          required
+        />
+      </div>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Short Description <span style="color: red">*</span></label
+      >
+
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        name="desc"
+        required
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock content %}

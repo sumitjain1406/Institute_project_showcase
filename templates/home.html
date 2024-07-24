@@ -1,0 +1,93 @@
+{% extends 'index.html' %} {% block title %}
+<title>𝓟𝓻𝓸𝓳𝓮𝓬𝓽 𝓢𝓱𝓸𝔀𝓬𝓪𝓼𝓮</title>
+{% endblock title %} {% block content %}
+
+<div class="my-4">
+  <div
+    id="carouselExampleIndicators"
+    class="carousel slide"
+    data-ride="carousel"
+  >
+    <ol class="carousel-indicators">
+      <li
+        data-target="#carouselExampleIndicators"
+        data-slide-to="0"
+        class="active"
+      ></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="height: 500px !important">
+        <img class="d-block w-100" src="/static/1.jpg" alt="First slide" />
+      </div>
+      <div class="carousel-item" style="height: 500px !important">
+        <img class="d-block w-100" src="/static/2.jpg" alt="Second slide" />
+      </div>
+      <div class="carousel-item" style="height: 500px !important">
+        <img class="d-block w-100" src="/static/3.jpg" alt="Third slide" />
+      </div>
+    </div>
+    <a
+      class="carousel-control-prev"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExampleIndicators"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<br />
+<div class="container">
+  <h2 class="text-center">Why choose 𝓟𝓻𝓸-𝓬𝓪𝓼𝓮 ?</h2>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-sm-6">
+      An integrated platform that can provide a one stop solution for students
+      in all the departments about the projects done by the students. This
+      system allows the students to store the project details and this software
+      allows the user to view the project based on category and to study the
+      project.
+    </div>
+    <div class="col-sm-6">
+      <img src="/static/4.jpg" alt="4" width="500" height="300" />
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="/static/5.jpg" alt="4" width="500" height="300" />
+    </div>
+    <div class="col-sm-6">
+      This project is a combination of methodologies and technologies that
+      assist you with the planning, organizing, and scheduling everything that
+      contributes to the success of a project.
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col-sm-6">
+      This project will bring students with similar interests and thinking
+      together to work on various ideas and learn from each other. Students can
+      also take reference from many projects.
+    </div>
+    <div class="col-sm-6">
+      <img src="/static/6.jpg" alt="4" width="500" height="300" />
+    </div>
+  </div>
+</div>
+{% endblock content %}
